@@ -12,6 +12,14 @@ module.exports = {
     path: outputPath,
     filename: "main.js",
   },
+  module: {
+    rules: [
+      // use: loader名
+      // test: loaderを適用するファイル名
+      // ※useの中は逆順に適用されていく
+      { test: /\.css$/, use: ["style-loader", "css-loader"] },
+    ],
+  },
   devServer: {
     contentBase: outputPath,
   },
