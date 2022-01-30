@@ -1,4 +1,8 @@
 import _ from "lodash";
+// import { fnNijou } from "./utilities";
+import * as utilities from "./utilities";
+
+console.log(utilities.fnNijou(3));
 
 const component = () => {
   const element = document.createElement("div");
