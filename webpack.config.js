@@ -14,10 +14,25 @@ module.exports = {
   },
   module: {
     rules: [
-      // use: loader名
-      // test: loaderを適用するファイル名
-      // ※useの中は逆順に適用されていく
+      // test: loaderを適用するファイル名, use: loader名
+      // ※ useの中は逆順に適用されていく
+
+      // css
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
+
+      // image
+      {
+        test: /\.(png|jpe?g|gif|svg|ico)$/i,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 2048,
+              name: "./images/[name].[ext]",
+            },
+          },
+        ],
+      },
     ],
   },
   devServer: {
