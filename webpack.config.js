@@ -20,6 +20,9 @@ module.exports = {
       // css
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
 
+      // scss
+      { test: /\.scss$/, use: ["style-loader", "css-loader", "sass-loader"] },
+
       // image
       {
         test: /\.(png|jpe?g|gif|svg|ico)$/i,

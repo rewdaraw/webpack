@@ -1,6 +1,7 @@
 import _ from "lodash";
 import * as utilities from "./utilities";
 import "./style.css";
+import "./style.scss";
 import sample from "./sample.jpg";
 
 console.log(utilities.fnNijou(3));
