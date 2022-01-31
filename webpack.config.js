@@ -1,5 +1,6 @@
 const path = require("path");
 const outputPath = path.resolve(__dirname, "dist");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 console.log({ outputPath });
 
@@ -16,6 +17,9 @@ module.exports = {
     rules: [
       // test: loaderを適用するファイル名, use: loader名
       // ※ useの中は逆順に適用されていく
+
+      // html
+      { test: /\.html$/, use: ["html-loader"] },
 
       // css
       { test: /\.css$/, use: ["style-loader", "css-loader"] },
@@ -53,4 +57,10 @@ module.exports = {
   devServer: {
     contentBase: outputPath,
   },
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: "./src/index.html",
+      filename: "./index.html",
+    }),
+  ],
 };
